@@ -2,6 +2,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { registerListTools } from "./tools/list.js";
+import { registerAnalyzeTools } from "./tools/analyze.js";
 
 const server = new McpServer({
   name: "claude-code-hooks-mcp-server",
@@ -9,6 +10,7 @@ const server = new McpServer({
 });
 
 registerListTools(server);
+registerAnalyzeTools(server);
 
 async function main() {
   const transport = new StdioServerTransport();
