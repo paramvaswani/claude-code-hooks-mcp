@@ -1,6 +1,8 @@
-# claude-code-hooks-mcp-server
+# @paramxclaudedev/claude-code-hooks-mcp
 
-MCP server that lets Claude Code inspect and edit its own hooks in `~/.claude/settings.json`. Meta — Claude managing the rules it runs under.
+[![npm](https://img.shields.io/npm/v/@paramxclaudedev/claude-code-hooks-mcp)](https://www.npmjs.com/package/@paramxclaudedev/claude-code-hooks-mcp)
+
+MCP server that lets Claude Code inspect its own hooks in `~/.claude/settings.json`. Meta — Claude reading the rules it runs under.
 
 ## Tools (read-only by design)
 
@@ -19,9 +21,9 @@ A future scope expansion could add edit tools behind an explicit `--unsafe` flag
 ## Setup
 
 ```bash
-pnpm install
-pnpm build
-pnpm smoke   # reads your real settings.json, prints a summary
+npx @paramxclaudedev/claude-code-hooks-mcp
+# or install globally
+npm install -g @paramxclaudedev/claude-code-hooks-mcp
 ```
 
 Add to `~/.claude.json`:
@@ -29,8 +31,8 @@ Add to `~/.claude.json`:
 ```jsonc
 "mcpServers": {
   "hooks": {
-    "command": "node",
-    "args": ["/absolute/path/to/claude-code-hooks-mcp/dist/index.js"]
+    "command": "npx",
+    "args": ["@paramxclaudedev/claude-code-hooks-mcp"]
   }
 }
 ```

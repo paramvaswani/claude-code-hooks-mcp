@@ -1,18 +1,39 @@
 {
-  "name": "claude-code-hooks-mcp-server",
+  "name": "@paramxclaudedev/claude-code-hooks-mcp",
   "version": "0.1.0",
-  "description": "MCP server for managing hooks in ~/.claude/settings.json. Inspect, add, remove, backup, restore. Mutating tools dry-run by default.",
+  "description": "MCP server for inspecting Claude Code hooks in ~/.claude/settings.json. Read-only — safe to run inside Claude sessions.",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "claude-code-hooks-mcp-server": "dist/index.js"
+    "claude-code-hooks-mcp": "dist/index.js"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts",
     "smoke": "tsx scripts/smoke-test.ts",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "prepare": "pnpm build"
+  },
+  "keywords": [
+    "mcp",
+    "claude-code",
+    "hooks",
+    "claude",
+    "model-context-protocol"
+  ],
+  "author": "Param Vaswani",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paramxclaudedev/claude-code-hooks-mcp.git"
+  },
+  "homepage": "https://github.com/paramxclaudedev/claude-code-hooks-mcp#readme",
+  "publishConfig": {
+    "access": "public"
   },
   "engines": {
     "node": ">=18"
